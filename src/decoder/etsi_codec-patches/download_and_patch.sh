@@ -1,7 +1,7 @@
 #!/bin/sh
 
-URL=https://raw.githubusercontent.com/zhaocaimiaomiao/sdrpp-tetra-demodulator/main/en_30039502v010301p0.zip
-HTTPURL=https://raw.githubusercontent.com/zhaocaimiaomiao/sdrpp-tetra-demodulator/main/en_30039502v010301p0.zip
+#URL=https://raw.githubusercontent.com/zhaocaimiaomiao/sdrpp-tetra-demodulator/main/en_30039502v010301p0.zip
+#HTTPURL=https://raw.githubusercontent.com/zhaocaimiaomiao/sdrpp-tetra-demodulator/main/en_30039502v010301p0.zip
 MD5_EXP=a8115fe68ef8f8cc466f4192572a1e3e
 LOCAL_FILE=en_30039502v010301p0.zip
 
@@ -14,13 +14,15 @@ echo Deleting $CODECDIR ...
 echo Creating $CODECDIR ...
 mkdir $CODECDIR
 
-if [ ! -f $LOCAL_FILE ]; then
-	echo Downloading $URL ...
+#if [ ! -f $LOCAL_FILE ]; then
+	#echo Downloading $URL ...
 # 	wget -O $LOCAL_FILE $URL
-	curl -kLSs $URL -o $LOCAL_FILE
-else
-	echo Skipping download, file $LOCAL_FILE exists
-fi
+	#curl -kLSs $URL -o $LOCAL_FILE
+#else
+	#echo Skipping download, file $LOCAL_FILE exists
+#fi
+echo Copy zip from repo root
+cp -f ../../../../${LOCAL_FILE} ./${LOCAL_FILE}
 MD5=`md5sum $LOCAL_FILE | awk '{ print $1 }'`
 
 echo Checking MD5SUM ...
@@ -28,7 +30,8 @@ if [ $MD5 != $MD5_EXP ]; then
 	FILESIZE=$(stat -c%s "$LOCAL_FILE")
 	echo "MD5sum of ETSI reference codec file doesn't match($MD5, $MD5_EXP). File size is $FILESIZE"
 	rm $LOCAL_FILE
-	curl -kLSs $HTTPURL -o $LOCAL_FILE
+	cp -f ../../../../${LOCAL_FILE} ./${LOCAL_FILE}
+	#curl -kLSs $HTTPURL -o $LOCAL_FILE
 	MD5=`md5sum $LOCAL_FILE | awk '{ print $1 }'`
 	if [ $MD5 != $MD5_EXP ]; then
 		FILESIZE=$(stat -c%s "$LOCAL_FILE")
