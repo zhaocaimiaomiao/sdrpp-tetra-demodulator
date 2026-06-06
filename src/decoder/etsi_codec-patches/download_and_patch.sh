@@ -22,7 +22,7 @@ mkdir $CODECDIR
 	#echo Skipping download, file $LOCAL_FILE exists
 #fi
 echo Copy zip from repo root
-cp -f ../../../../${LOCAL_FILE} ./${LOCAL_FILE}
+cp -f ../../../${LOCAL_FILE} ./${LOCAL_FILE}
 MD5=`md5sum $LOCAL_FILE | awk '{ print $1 }'`
 
 echo Checking MD5SUM ...
@@ -30,7 +30,7 @@ if [ $MD5 != $MD5_EXP ]; then
 	FILESIZE=$(stat -c%s "$LOCAL_FILE")
 	echo "MD5sum of ETSI reference codec file doesn't match($MD5, $MD5_EXP). File size is $FILESIZE"
 	rm $LOCAL_FILE
-	cp -f ../../../../${LOCAL_FILE} ./${LOCAL_FILE}
+	cp -f ../../../${LOCAL_FILE} ./${LOCAL_FILE}
 	#curl -kLSs $HTTPURL -o $LOCAL_FILE
 	MD5=`md5sum $LOCAL_FILE | awk '{ print $1 }'`
 	if [ $MD5 != $MD5_EXP ]; then
