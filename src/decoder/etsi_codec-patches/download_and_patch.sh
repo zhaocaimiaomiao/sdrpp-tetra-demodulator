@@ -45,6 +45,8 @@ echo Unpacking ZIP ...
 cd $CODECDIR
 #unzip -L $PATCHDIR/etsi_tetra_codec.zip
 unzip -L $PATCHDIR/$LOCAL_FILE
+mv en_30039502v010301p0/* ./
+rm -rf en_30039502v010301p0
 echo Contents of $CODECDIR:
 ls -lah
 
