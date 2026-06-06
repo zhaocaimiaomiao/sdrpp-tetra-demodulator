@@ -1,7 +1,7 @@
 #!/bin/sh
 
-URL=https://github.com/zhaocaimiaomiao/sdrpp-tetra-demodulator/raw/main/en_30039502v010301p0.zip
-HTTPURL=https://github.com/zhaocaimiaomiao/sdrpp-tetra-demodulator/raw/main/en_30039502v010301p0.zip
+URL=https://raw.githubusercontent.com/zhaocaimiaomiao/sdrpp-tetra-demodulator/main/en_30039502v010301p0.zip
+HTTPURL=https://raw.githubusercontent.com/zhaocaimiaomiao/sdrpp-tetra-demodulator/main/en_30039502v010301p0.zip
 MD5_EXP=a8115fe68ef8f8cc466f4192572a1e3e
 LOCAL_FILE=en_30039502v010301p0.zip
 
